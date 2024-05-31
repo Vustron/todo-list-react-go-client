@@ -8,7 +8,10 @@ export const useGetTodos = () => {
 		queryKey: ['todos'],
 		queryFn: async () => {
 			try {
-				const { data } = await axios.get(`http://localhost:5000/api/todos`);
+				const { data } = await axios.get(
+					`${process.env.NEXT_PUBLIC_BASE_URL}/api/todos`
+				);
+
 				return data;
 			} catch (error: any) {
 				console.error(`${error.message}`);

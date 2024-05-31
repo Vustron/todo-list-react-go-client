@@ -7,7 +7,7 @@ export const useDeleteTodo = (_id?: string) => {
 	const mutation = useMutation<ResponseType, Error>({
 		mutationFn: async () => {
 			const { data } = await axios.delete(
-				`http://localhost:5000/api/todos/${_id}`,
+				`${process.env.NEXT_PUBLIC_BASE_URL}/api/todos/${_id}`,
 				{
 					data: {
 						_id,

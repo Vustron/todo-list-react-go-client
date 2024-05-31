@@ -12,7 +12,7 @@ export const useUpdateTodo = (_id?: string) => {
 	const mutation = useMutation({
 		mutationFn: async (values: UpdatePayload) => {
 			const { data } = await axios.patch(
-				`http://localhost:5000/api/todos/${_id}`,
+				`${process.env.NEXT_PUBLIC_BASE_URL}/api/todos/${_id}`,
 				values
 			);
 			return data;

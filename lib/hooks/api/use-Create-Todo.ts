@@ -11,7 +11,7 @@ export const useCreateTodo = () => {
 	const mutation = useMutation({
 		mutationFn: async (values: CreatePayload) => {
 			const { data } = await axios.post(
-				`http://localhost:5000/api/todos`,
+				`${process.env.NEXT_PUBLIC_BASE_URL}/api/todos`,
 				values
 			);
 			return data;

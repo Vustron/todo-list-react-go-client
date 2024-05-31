@@ -56,32 +56,32 @@ const TodoItem = ({ todo }: { todo: Todo }) => {
 						<Badge className='bg-yellow-300'>In progress</Badge>
 					)}
 
-					{isPending ? (
-						<>
+					<Button
+						size='sm'
+						variant='ghost'
+						className='ml-2'
+						onClick={() => updateTodo(true)}
+						disabled={isPending}
+					>
+						{isPending ? (
 							<LoaderCircle className='size-6 animate-spin' />
-						</>
-					) : (
-						<>
-							<Button
-								size='sm'
-								variant='ghost'
-								className='ml-2'
-								onClick={() => updateTodo(true)}
-								disabled={isPending}
-							>
-								<CircleCheck className='size-6 text-green-500' />
-							</Button>
+						) : (
+							<CircleCheck className='size-6 text-green-500' />
+						)}
+					</Button>
 
-							<Button
-								size='sm'
-								variant='ghost'
-								onClick={deleteTodo}
-								disabled={isPending}
-							>
-								<CircleX className='size-6 text-red-500' />
-							</Button>
-						</>
-					)}
+					<Button
+						size='sm'
+						variant='ghost'
+						onClick={deleteTodo}
+						disabled={isPending}
+					>
+						{isPending ? (
+							<LoaderCircle className='size-6 animate-spin' />
+						) : (
+							<CircleX className='size-6 text-red-500' />
+						)}
+					</Button>
 				</div>
 			</div>
 		</>

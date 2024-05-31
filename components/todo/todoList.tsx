@@ -22,6 +22,8 @@ const TodoList = () => {
 
 	return (
 		<div className='space-y-8 mt-6'>
+			{!todos && <h1>No tasks</h1>}
+
 			{isLoading ? (
 				<>
 					<div className='flex flex-col justify-center items-center'>
